@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 Reasons I Love You 💜</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="purple-theme">
+
+  <header>
+    Our Love Story 📖
+  </header>
+
+  <main class="book-main-container">
+    <a href="home.html" class="back-button">← Back to Home</a>
+
+    <div class="book-container">
+      <div class="book-page active" id="page-0">
+        <h2 class="page-title">Baby, here are all the reasons you’re my everything 💜</h2>
+        <p>Click 'Next' to discover them!</p>
+      </div>
+
+      <!-- Reason pages (start from 1) -->
+      <div class="book-page" id="page-1">
+        <div class="page-number">1</div>
+        <p>Your smile brightens my entire day 😊</p>
+      </div>
+      <div class="book-page" id="page-2">
+        <div class="page-number">2</div>
+        <p>You understand me better than anyone else 💕</p>
+      </div>
+      <div class="book-page" id="page-3">
+        <div class="page-number">3</div>
+        <p>You are a lovely and genuine person my darling...</p>
+      </div>
+      <div class="book-page" id="page-4">
+        <div class="page-number">4</div>
+        <p>I enjoy every minute and every second that I send with you my cudie</p>
+      </div>
+      <div class="book-page" id="page-5">
+        <div class="page-number">5</div>
+        <p>Knowing that you will be by my side no matter what makes me feel invincible.Mwah... </p>
+      </div>
+      <div class="book-page" id="page-6">
+        <div class="page-number">6</div>
+        <p>You’re my safe place, my home and my everything darling.... 💜</p>
+      </div>
+      <div class="book-page" id="page-7">
+        <div class="page-number">7</div>
+        <p>Hearing you laugh makes my day sweetheart.....🌸</p>
+      </div>
+      <div class="book-page" id="page-8">
+        <div class="page-number">8</div>
+        <p>You make me a better person in everyway that I can think of my baby.. 🌟</p>
+      </div>
+      <div class="book-page" id="page-9">
+        <div class="page-number">9</div>
+        <p>I can be my true self with you without having the fear of being judged... 💯</p>
+      </div>
+      <div class="book-page" id="page-10">
+        <div class="page-number">10</div>
+        <p>You care in the smallest, most beautiful ways and it very very adorable wifey....💜</p>
+      </div>
+      <div class="book-page" id="page-11">
+        <div class="page-number">11</div>
+        <p>Darling when you hug me, its not just a simple hug it a safe place where I forget all my worries and feel peace my sweetie..</p>
+      </div>
+      <div class="book-page" id="page-12">
+        <div class="page-number">12</div>
+        <p>I love when you are mad at me because you miss....[is it very cute but when you miss me, please call and talk to me my darling..💕]</p> 
+      </div>
+      <div class="book-page" id="page-13">
+        <div class="page-number">13</div>
+        <p>You believe in me even when I don’t, Thank you for that darling...</p>
+      </div>
+      <div class="book-page" id="page-14">
+        <div class="page-number">14</div>
+        <p>You make every day worth living,Mwah</p>
+      </div>
+      <div class="book-page" id="page-15">
+        <div class="page-number">15</div>
+        <p>You are my biggest blessing and my biggest achievement my cudie.. 💌</p>
+      </div>
+      <div class="book-page" id="page-16">
+        <div class="page-number">16</div>
+        <p>Your eyes tell me everything without words and your eyes are very pretty my baby, I can get lost in them forever...</p>
+      </div>
+      <div class="book-page" id="page-17">
+        <div class="page-number">17</div>
+        <p>You’re my best friend and my soulmate 💍</p>
+      </div>
+      <div class="book-page" id="page-18">
+        <div class="page-number">18</div>
+        <p>You make me complete my sweetie, I love calling you my girlfriend...Mwah</p>
+      </div>
+      <div class="book-page" id="page-19">
+        <div class="page-number">19</div>
+        <p>I love you simply because you’re YOU and you are MINE 💖</p>
+      </div>
+
+      <div class="book-page" id="page-20">
+        <h2 class="page-title">That's all for now, my love! 🥰</h2>
+        <p>I hope you enjoyed discovering all the reasons. There are countless more!.I love you sweethert more than you can realize and I hope you are gonna stay by my side forever my wifey....mmmwwaaahhh </p>
+        <a href="home.html" class="back-button">Go Back to Home</a>
+      </div>
+    </div>
+
+    <div class="book-controls">
+      <button id="prev-page" disabled>← Previous</button>
+      <button id="next-page">Next →</button>
+    </div>
+  </main>
+
+  <audio id="bg-music" loop>
+    <source src="stealmygirl.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="toggleMusic">🎶 Play / Stop Music</button>
+
+  <script src="script.js"></script>
+  <script>
+    // JavaScript for book page turning
+    document.addEventListener("DOMContentLoaded", function() {
+      const pages = document.querySelectorAll('.book-page');
+      const prevBtn = document.getElementById('prev-page');
+      const nextBtn = document.getElementById('next-page');
+      let currentPageIndex = 0; // Start with the intro page
+
+      function showPage(index) {
+        pages.forEach((page, i) => {
+          page.classList.remove('active', 'prev-leaving', 'next-leaving', 'prev-entering', 'next-entering');
+          if (i === index) {
+            page.classList.add('active');
+          }
+        });
+
+        // Disable/enable buttons
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === pages.length - 1;
+      }
+
+      function nextPage() {
+        if (currentPageIndex < pages.length - 1) {
+          pages[currentPageIndex].classList.add('next-leaving');
+          currentPageIndex++;
+          pages[currentPageIndex].classList.add('active', 'next-entering');
+          showPage(currentPageIndex);
+        }
+      }
+
+      function prevPage() {
+        if (currentPageIndex > 0) {
+          pages[currentPageIndex].classList.add('prev-leaving');
+          currentPageIndex--;
+          pages[currentPageIndex].classList.add('active', 'prev-entering');
+          showPage(currentPageIndex);
+        }
+      }
+
+      nextBtn.addEventListener('click', nextPage);
+      prevBtn.addEventListener('click', prevPage);
+
+      // Initial page display
+      showPage(currentPageIndex);
+    });
+  </script>
+</body>
+</html>

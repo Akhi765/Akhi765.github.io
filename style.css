@@ -1,0 +1,399 @@
+body.purple-theme {
+  background: linear-gradient(135deg, #b39ddb, #e1bee7);
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Unlock Page (index.html) */
+.heart-container {
+  width: 250px; /* Adjust size as needed */
+  height: 225px; /* Adjust size as needed */
+  background: rgba(255, 255, 255, 0.1); /* Frosted glass background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  animation: heartbeat 1s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 25px; /* Rounded corners for the container */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+.heart-container::before,
+.heart-container::after {
+  content: "";
+  width: 250px;
+  height: 225px;
+  background: rgba(255, 255, 255, 0.1); /* Frosted glass for the heart lobes */
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.heart-container::before { top: -125px; left: 0; }
+.heart-container::after { left: 125px; top: 0; }
+
+.heart-container > * {
+  z-index: 1; /* Ensures content is visible above the heart shape */
+  transform: rotate(45deg); /* Re-orients the content to be upright */
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.1); }
+}
+
+.heart-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem; /* Adjusted for smaller container */
+  margin-bottom: 0.5rem;
+}
+
+input, button {
+  padding: 8px 15px; /* Adjusted for smaller container */
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+}
+button {
+  background: #9c27b0;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background: #ab47bc;
+}
+
+/* Common Music Toggle Button */
+#toggleMusic {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  color: #6a1b9a;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#toggleMusic:hover {
+  background: #e1bee7;
+  transform: scale(1.1);
+}
+
+/* Home Page (home.html) */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #a770ef, #cf8bf3);
+  color: white;
+  text-align: center;
+  overflow: hidden; /* Prevent scrollbars from animation */
+}
+
+.background-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.background-hearts div {
+  position: absolute;
+  bottom: -150px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  animation: float-up 10s infinite;
+}
+.background-hearts div::before,
+.background-hearts div::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.background-hearts div::before { top: -50px; left: 0; }
+.background-hearts div::after { left: 50px; top: 0; }
+
+.background-hearts div:nth-child(1) { left: 10%; animation-duration: 12s; }
+.background-hearts div:nth-child(2) { left: 20%; animation-duration: 7s; }
+.background-hearts div:nth-child(3) { left: 25%; animation-duration: 10s; }
+.background-hearts div:nth-child(4) { left: 40%; animation-duration: 15s; }
+.background-hearts div:nth-child(5) { left: 50%; animation-duration: 9s; }
+.background-hearts div:nth-child(6) { left: 65%; animation-duration: 11s; }
+.background-hearts div:nth-child(7) { left: 80%; animation-duration: 13s; }
+
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-1200px) rotate(45deg); opacity: 0; }
+}
+
+.card { /* Used for home.html's main content card */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 40px 60px;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  animation: pulse 2s infinite;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.button-group a {
+  background: white;
+  color: #6a1b9a;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-group a:hover {
+  background: #e1bee7;
+  transform: scale(1.1);
+}
+
+/* Reasons Page (reasons.html) - BOOK EFFECT */
+.book-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensures it takes full height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.book-container {
+  position: relative;
+  width: 320px; /* Width of the book */
+  height: 480px; /* Height of the book */
+  perspective: 1000px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  background: #f3e5f5; /* Book spine/base color */
+}
+
+.book-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white; /* Page color */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px; /* Increased padding for more space */
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  transform-origin: left center;
+  transition: transform 0.8s ease-in-out, z-index 0s 0.4s;
+  z-index: 1; /* Default z-index */
+  color: #4a148c; /* Text color for pages */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem; /* Keeping this for general page text */
+  text-align: center;
+  line-height: 1.6; /* Slightly increased line height */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.book-page.active {
+  transform: rotateY(0deg);
+  z-index: 2; /* Active page is always on top */
+}
+
+/* Page turning animations */
+.book-page.next-leaving {
+  transform: rotateY(-180deg);
+  z-index: 3; /* Ensure it stays on top during flip */
+  transition: transform 0.8s ease-in-out;
+}
+
+.book-page.prev-leaving {
+  transform: rotateY(180deg);
+  z-index: 3; /* Ensure it stays on top during flip */
+  transition: transform 0.8s ease-in-out;
+}
+
+
+/* Content styling for pages */
+.book-page .page-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #6a1b9a;
+}
+
+.book-page .page-number {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #9c27b0;
+}
+
+.book-page p {
+  font-size: 1rem; /* Slightly smaller font for reasons */
+  margin-bottom: 0; /* Remove extra margin if not needed between paragraphs on a page */
+  max-width: 90%; /* Constrain width slightly to prevent lines from being too long */
+}
+
+.book-controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.book-controls button {
+  background: #9c27b0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.book-controls button:hover:not(:disabled) {
+  background: #ab47bc;
+  transform: scale(1.05);
+}
+
+.book-controls button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+
+/* Photo Gallery Page (photos.html) */
+.gallery-container {
+  max-width: 90%;
+  margin: 2rem auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.back-button {
+  display: inline-block;
+  background: white;
+  color: #6a1b9a;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background: #e1bee7;
+  transform: scale(1.1);
+}
+
+.camera-roll-container {
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  padding-bottom: 20px; /* Space for the scrollbar on some browsers */
+  gap: 20px;
+  -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+.camera-roll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-item {
+  flex-shrink: 0; /* Prevents items from shrinking */
+  width: 250px; /* Fixed width for each photo/video */
+  background-color: white; /* The white Polaroid frame */
+  padding: 10px 10px 30px 10px; /* Thicker bottom padding for the 'lip' */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: rotate(var(--rotation, 0deg)); /* Allows for random rotation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05) rotate(var(--rotation-hover, 0deg));
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.gallery-item img, .gallery-item video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

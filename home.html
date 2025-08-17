@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #a770ef, #cf8bf3);
+      color: white;
+      text-align: center;
+      overflow: hidden; /* Prevent scrollbars from animation */
+    }
+
+    .background-hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .background-hearts div {
+      position: absolute;
+      bottom: -150px;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(45deg);
+      animation: float-up 10s infinite;
+    }
+    .background-hearts div::before,
+    .background-hearts div::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+    .background-hearts div::before { top: -50px; left: 0; }
+    .background-hearts div::after { left: 50px; top: 0; }
+
+    .background-hearts div:nth-child(1) { left: 10%; animation-duration: 12s; }
+    .background-hearts div:nth-child(2) { left: 20%; animation-duration: 7s; }
+    .background-hearts div:nth-child(3) { left: 25%; animation-duration: 10s; }
+    .background-hearts div:nth-child(4) { left: 40%; animation-duration: 15s; }
+    .background-hearts div:nth-child(5) { left: 50%; animation-duration: 9s; }
+    .background-hearts div:nth-child(6) { left: 65%; animation-duration: 11s; }
+    .background-hearts div:nth-child(7) { left: 80%; animation-duration: 13s; }
+
+    @keyframes float-up {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-1200px) rotate(45deg); opacity: 0; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      animation: pulse 2s infinite;
+      z-index: 1;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button-group a {
+      background: white;
+      color: #6a1b9a;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-group a:hover {
+      background: #e1bee7;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="background-hearts">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="card">
+    <h1>Welcome My Love ❤️</h1>
+    <p>I made something special just for you 💕</p>
+    <div class="button-group">
+      <a href="reasons.html">See 19 Reasons Why I Love You 💖</a>
+      <a href="photo.html">See Our Photos 📸</a>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop>
+    <source src="stealmygirl.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="toggleMusic">🎶 Play / Stop Music</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
